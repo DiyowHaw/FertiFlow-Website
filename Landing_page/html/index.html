@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>FertiFlow - Fertigasi Cerdas AIoT</title>
+  <meta name="description" content="FertiFlow: fertigasi cerdas berbasis AIoT dengan pemantauan sensor secara langsung dan diagnosis hama YOLOv8.">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Poppins:wght@400;500;600;700&display=swap">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="#top" aria-label="FertiFlow beranda">
+        <img class="logo-mark" src="../img/logo-fertiflow.png" alt="" width="40" height="40"><span class="logo-text"><span>Ferti</span><span>Flow</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="#fitur">Fitur</a>
+        <a href="#tampilan">Tampilan</a>
+        <a href="#demo">Diagnosis AI</a>
+        <a href="#faq">FAQ</a>
+        <a href="#tentang">Tentang</a>
+      </nav>
+      <div class="nav-cta">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Ganti mode terang atau gelap" title="Ganti mode terang/gelap">
+          <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button class="btn btn-primary" type="button" id="authOpen" aria-haspopup="dialog" aria-label="Daftar akun FertiFlow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span>Daftar</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Fertigasi cerdas berbasis AIoT</span>
+        <h1>Air dan pupuk tepat takaran, <em>lahan terpantau dari genggaman.</em></h1>
+        <p class="lede">FertiFlow menghubungkan sensor di lahanmu dengan aplikasi di ponsel. Pantau kelembapan tanah dan suhu, atur jadwal penyiraman dan pemupukan, lalu foto daun yang sakit untuk didiagnosis oleh AI YOLOv8.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary js-store" href="#unduh">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4l3.3 3.3V4a1 1 0 0 1 1-1ZM5 19h14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2Z"/></svg>
+            Unduh Aplikasi
+          </a>
+          <a class="btn btn-ghost" href="#fitur">Jelajahi fitur</a>
+        </div>
+        <div class="hero-meta"><span>Android</span><span>Mode gelap</span></div>
+      </div>
+
+      <div class="phone-stage">
+        <div class="phone">
+          <img src="../img/app-beranda.jpg" alt="Layar Beranda aplikasi FertiFlow: status Beroperasi Normal, deteksi bercak daun, dan data sensor" width="576" height="1216">
+        </div>
+        <div class="float float-1" aria-hidden="true"><span class="ic" style="background:var(--danger-soft);color:var(--danger)">!</span><div><b>Bercak daun terdeteksi</b><small>keyakinan 91% · YOLOv8</small></div></div>
+        <div class="float float-2" aria-hidden="true"><span class="ic" style="background:var(--brand-soft);color:var(--brand-strong)">⏱</span><div><b>Jadwal berikutnya 06:00</b><small>Air · 2.0 L · Sen Rab Jum</small></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SENSOR STRIP ============ -->
+  <div class="strip">
+    <div class="wrap">
+      <span class="strip-title">Yang akan dipantau oleh aplikasi</span>
+      <div class="chips">
+        <span class="chip"><i style="background:var(--brand)"></i>Kelembapan tanah</span>
+        <span class="chip"><i style="background:var(--warn)"></i>Suhu udara</span>
+        <span class="chip"><i style="background:var(--sky-a)"></i>Kelembapan udara</span>
+        <span class="chip"><i style="background:var(--teal)"></i>Grafik data sensor</span>
+        <span class="chip"><i style="background:var(--amber)"></i>Aktivitas penyiraman</span>
+        <span class="chip"><i style="background:var(--violet)"></i>Level tandon air</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FITUR: tanaman yang bisa diputar ============ -->
+  <section id="fitur">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Fitur aplikasi</span>
+        <h2>Sentuh tanamannya, kenali fiturnya</h2>
+        <p>Klik angka pada tanaman cabai.</p>
+      </div>
+
+      <div class="plant-wrap">
+        <!-- Tanaman: gambar img/tanaman-cabai.png, titik fitur diletakkan dengan persen dari ukuran gambar -->
+        <div class="plant-stage" id="plantStage">
+          <div class="plant-fig" id="plantFig">
+            <img src="../img/tanaman-cabai.png" alt="Tanaman cabai dalam pot" width="421" height="881" draggable="false">
+            <button class="hs on" type="button" data-k="monitoring" aria-label="Sensor" style="left:17.8%;top:37.3%">1</button>
+            <button class="hs" type="button" data-k="kontrol" aria-label="Kontrol" style="left:83.3%;top:39.2%">2</button>
+            <button class="hs" type="button" data-k="jadwal" aria-label="Jadwal" style="left:9.8%;top:17.8%">3</button>
+            <button class="hs" type="button" data-k="diagnosis" aria-label="Diagnosis" style="left:97.5%;top:22.4%">4</button>
+            <button class="hs" type="button" data-k="tangani" aria-label="Tangani" style="left:3%;top:4.7%">5</button>
+            <button class="hs" type="button" data-k="aktivitas" aria-label="Aktivitas" style="left:86.7%;top:8.8%">6</button>
+          </div>
+        </div>
+
+        <div class="feat-side">
+          <div class="feat feat-panel" data-k="monitoring">
+          <div class="feat-vis"><div class="v-tiles">
+            <div class="v-tile"><b>5%</b><small>Kelembapan Tanah</small></div>
+            <div class="v-tile"><b>30.9°</b><small>Suhu Udara</small></div>
+            <div class="v-tile"><b>65%</b><small>Kelembapan Udara</small></div>
+          </div></div>
+          <h3>Pemantauan Sensor</h3>
+          <p>Data dari sensor di lahan masuk ke ponselmu secara langsung, lengkap dengan grafik 7 hari terakhir.</p>
+          <div class="feat-foot"><span>Tab Beranda</span><button class="go" type="button" data-f="monitoring">Lihat di aplikasi <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </div>
+          <div class="feat feat-panel" data-k="kontrol" hidden>
+          <div class="feat-vis"><div class="v-sw">
+            <div>Penyiraman Otomatis <span class="tg on"></span></div>
+            <div>Pestisida A <span class="tg"></span></div>
+            <div>Pestisida B <span class="tg"></span></div>
+          </div></div>
+          <h3>Kontrol Pompa &amp; Pestisida</h3>
+          <p>Nyalakan penyiraman atau pestisida dari jarak jauh, atau biarkan mode otomatis bekerja. Level tandon dan pupuk selalu terlihat.</p>
+          <div class="feat-foot"><span>Tab IoT</span><button class="go" type="button" data-f="kontrol">Lihat di aplikasi <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </div>
+          <div class="feat feat-panel" data-k="jadwal" hidden>
+          <div class="feat-vis"><div>
+            <div class="v-days"><span>Sen</span><span>Sel</span><span>Rab</span><span class="on">Kam</span><span>Jum</span></div>
+            <div class="v-slot"><b>16:30</b><span class="tag">Pupuk</span><span style="color:var(--muted)">1.5 L</span></div>
+          </div></div>
+          <h3>Jadwal Air &amp; Pupuk</h3>
+          <p>Tentukan hari, jam, dan volume dalam liter. Perangkat menyiram dan memupuk sendiri sesuai jadwal.</p>
+          <div class="feat-foot"><span>Tab Jadwal</span><button class="go" type="button" data-f="jadwal">Lihat di aplikasi <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </div>
+          <div class="feat feat-panel" data-k="diagnosis" hidden>
+          <div class="feat-vis v-photo">
+            <img src="../img/daun-leaf-spot.jpg" alt="" loading="lazy">
+            <div class="box"><span>Bercak Daun 91%</span></div>
+          </div>
+          <h3>Diagnosis Hama AI</h3>
+          <p>Foto daun dari kamera atau galeri. YOLOv8 menandai area yang terinfeksi, menyebut penyakitnya, dan tingkat keyakinannya.</p>
+          <div class="feat-foot"><span>Tombol kamera</span><button class="go" type="button" data-f="diagnosis">Lihat di aplikasi <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </div>
+          <div class="feat feat-panel" data-k="tangani" hidden>
+          <div class="feat-vis"><div class="v-check">
+            <div><i class="done"></i><s>Buang daun yang terinfeksi parah</s></div>
+            <div><i></i>Aplikasikan fungisida mankozeb</div>
+            <div><i></i>Pastikan sirkulasi udara baik</div>
+          </div></div>
+          <h3>Tindakan Penanganan</h3>
+          <p>Setiap hasil deteksi jadi daftar tugas: langkah penanganan, saran pestisida, dan status sampai kamu tandai selesai.</p>
+          <div class="feat-foot"><span>Tab Tangani</span><button class="go" type="button" data-f="tangani">Lihat di aplikasi <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </div>
+          <div class="feat feat-panel" data-k="aktivitas" hidden>
+          <div class="feat-vis"><div class="v-bars">
+            <div><span style="height:42%"></span>Sen</div><div><span style="height:70%"></span>Sel</div><div><span style="height:30%"></span>Rab</div><div><span style="height:55%"></span>Kam</div><div><span style="height:80%"></span>Jum</div><div><span style="height:50%"></span>Sab</div><div><span style="height:38%"></span>Min</div>
+          </div></div>
+          <h3>Aktivitas Penyiraman</h3>
+          <p>Liter air yang dipakai tiap hari tercatat otomatis, jadi kamu tahu total pemakaian air minggu ini.</p>
+          <div class="feat-foot"><span>Tab Beranda</span><button class="go" type="button" data-f="aktivitas">Lihat di aplikasi <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </div>
+          <div class="fpicks" role="group" aria-label="Pilih fitur">
+            <button type="button" class="fpick on" data-k="monitoring"><b>1</b>Sensor</button>
+            <button type="button" class="fpick" data-k="kontrol"><b>2</b>Kontrol</button>
+            <button type="button" class="fpick" data-k="jadwal"><b>3</b>Jadwal</button>
+            <button type="button" class="fpick" data-k="diagnosis"><b>4</b>Diagnosis</button>
+            <button type="button" class="fpick" data-k="tangani"><b>5</b>Penanganan</button>
+            <button type="button" class="fpick" data-k="aktivitas"><b>6</b>Aktivitas</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TAMPILAN APLIKASI: satu HP + pilihan layar ============ -->
+  <section id="tampilan">
+    <!-- Hiasan latar: bubble gradasi (murni CSS, ringan) -->
+    <div class="bubbles" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span><span class="b6"></span><span class="b7"></span></div>
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">Tampilan aplikasi</span>
+        <h2>Lihat aplikasinya langsung</h2>
+      </div>
+      <div class="viewer">
+        <div class="phone viewer-phone" id="vPhone">
+            <img src="../img/app-beranda.jpg" alt="Layar Beranda" width="576" height="1216" class="on" data-f2="monitoring" data-cap="Ringkasan kondisi lahan dan data sensor">
+            <img src="../img/app-iot.jpg" alt="Layar IoT" width="576" height="1216" loading="lazy" data-f2="kontrol" data-cap="Nyalakan pompa dan pestisida dari jarak jauh">
+            <img src="../img/app-jadwal.jpg" alt="Layar Jadwal" width="576" height="1216" loading="lazy" data-f2="jadwal" data-cap="Atur hari, jam, dan volume siram atau pupuk">
+            <img src="../img/app-diagnosis.jpg" alt="Layar Diagnosis AI" width="576" height="1216" loading="lazy" data-f2="diagnosis" data-cap="Foto daun, lalu AI mengenali penyakitnya">
+            <img src="../img/app-tangani.jpg" alt="Layar Tangani" width="576" height="1216" loading="lazy" data-f2="tangani" data-cap="Langkah perawatan untuk tanaman yang sakit">
+            <img src="../img/app-aktivitas.jpg" alt="Layar grafik dan aktivitas penyiraman" width="576" height="1216" loading="lazy" data-f2="aktivitas" data-cap="Grafik pemakaian air dan riwayat penyiraman">
+        </div>
+        <div class="viewer-tabs" id="vTabs" role="group" aria-label="Pilih layar">
+          <button type="button" class="on" data-i="0">Beranda</button>
+          <button type="button" class="" data-i="1">IoT</button>
+          <button type="button" class="" data-i="2">Jadwal</button>
+          <button type="button" class="" data-i="3">Diagnosis AI</button>
+          <button type="button" class="" data-i="4">Penanganan</button>
+          <button type="button" class="" data-i="5">Aktivitas</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEMO ============ -->
+  <section id="demo" class="band">
+    <div class="wrap demo">
+      <div>
+        <div class="scan idle" id="scan">
+          <img src="../img/daun-leaf-spot.jpg" alt="Foto daun dengan bercak penyakit">
+          <div class="line"></div>
+          <div class="bbox"><span>Bercak Daun 91%</span></div>
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="result" id="result">
+          <div class="result-top">
+            <div><b id="rTitle">Siap dianalisis</b><small id="rSub">Tekan Jalankan simulasi</small></div>
+            <span class="badge" id="rBadge" hidden>Berat</span>
+          </div>
+          <!-- Tahapan diambil dari teks yang muncul di aplikasi saat analisis -->
+          <ol class="stages" id="stages">
+            <li>Memuat foto tanaman</li>
+            <li>Mengekstrak fitur helai daun</li>
+            <li>Menghitung tingkat keparahan</li>
+          </ol>
+        </div>
+      </div>
+      <div class="demo-copy">
+        <span class="eyebrow">Diagnosis AI</span>
+        <h2>Lihat cara AI membaca daun yang sakit</h2>
+        <p class="demo-lede">Di aplikasi, kamu cukup memotret daun. Simulasi di samping menunjukkan tahapan yang terjadi setelahnya.</p>
+        <ul>
+          <li><span><b>Mendeteksi area penyakit.</b> YOLOv8 menggambar kotak di bagian daun yang terinfeksi.</span></li>
+          <li><span><b>Memberi tingkat keparahan.</b> Hasil diberi label seperti Ringan, Sedang, atau Berat.</span></li>
+          <li><span><b>Langsung ke solusi.</b> Rekomendasi seperti fungisida mankozeb atau propineb muncul di tab Tangani.</span></li>
+        </ul>
+        <div class="hero-ctas" style="margin-top:.4rem">
+          <button class="btn btn-ghost" id="runScan" type="button">▶ Jalankan simulasi</button>
+          <button class="btn btn-primary" type="button" data-f="diagnosis">Coba diagnosis di aplikasi</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <!-- CEK: pastikan jawaban di bawah sesuai dengan sistem kalian -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head faq-head">
+        <span class="eyebrow sm">Pertanyaan umum</span>
+        <h2>Sebelum kamu mulai</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Apakah saya perlu perangkat khusus?</summary><p>Untuk pemantauan dan kontrol pompa, lahan perlu dipasangi perangkat FertiFlow (sensor dan ESP32). Fitur diagnosis hama AI bisa dipakai cukup dengan kamera ponsel.</p></details>
+        <details><summary>Apakah perangkat butuh koneksi internet?</summary><p>Ya. Perangkat mengirim data dan menerima perintah melalui Firebase, jadi ESP32 perlu tersambung ke Wi-Fi di sekitar lahan.</p></details>
+        <details><summary>Bisakah penyiraman berjalan tanpa saya buka aplikasi?</summary><p>Bisa. Jadwal yang sudah dibuat di tab Jadwal dijalankan perangkat secara otomatis, dan mode Penyiraman Otomatis bisa dinyalakan di tab IoT.</p></details>
+        <details><summary>Penyakit apa saja yang bisa dideteksi?</summary><p>Model YOLOv8 di aplikasi dilatih untuk mengenali masalah daun cabai seperti bercak daun, keriting daun, virus kuning, dan kutu kebul.</p></details>
+        <details><summary>Kenapa fitur hanya ada di aplikasi, bukan di situs web?</summary><p>Kontrol pompa dan kamera untuk diagnosis paling praktis dipakai langsung di lahan lewat ponsel. Situs web ini berisi informasi produk dan portal untuk admin.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TENTANG & KONTAK ============ -->
+  <section id="tentang" class="band">
+    <div class="wrap">
+      <div class="about">
+        <div>
+          <div class="sec-head" style="margin-bottom:1.4rem">
+            <span class="eyebrow sm">Tentang FertiFlow</span>
+            <h2>Dibuat untuk petani yang ingin lahan lebih terukur</h2>
+          </div>
+          <div class="about-text">
+            <p>FertiFlow adalah sistem fertigasi cerdas yang menggabungkan Internet of Things dan kecerdasan buatan. Sensor di lahan mengukur kondisi tanaman, perangkat menyiram dan memupuk sesuai kebutuhan, dan AI membantu mengenali penyakit daun lebih awal.</p>
+            <p>Tujuannya sederhana: air dan pupuk dipakai seperlunya, dan masalah tanaman cepat ditangani.</p>
+          </div>
+          <!-- Tim: satu kartu + divisi (16 anggota terlalu banyak untuk ditampilkan per orang) -->
+          <div class="team-card">
+            <div class="team-head">
+              <span class="team-mark">KC</span>
+              <div><b>Tim Keluarga Cemara</b><small>16 mahasiswa · Politeknik Negeri Lampung</small></div>
+            </div>
+            <!-- SESUAIKAN: nama divisi dan jumlah anggotanya -->
+            <ul class="divisions">
+              <li><b>Aplikasi Seluler</b><span>Tampilan &amp; fitur aplikasi Android</span></li>
+              <li><b>IoT &amp; Perangkat</b><span>ESP32, sensor, pompa, Firebase</span></li>
+              <li><b>Kecerdasan Buatan</b><span>Data latih &amp; model YOLOv8</span></li>
+              <li><b>Situs Web &amp; Admin</b><span>Situs informasi &amp; portal admin</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-side">
+        <aside class="contact" aria-labelledby="saranTitle">
+          <h3 id="saranTitle">Saran dan masukan</h3>
+          <p class="contact-sub">Ada ide, keluhan, atau fitur yang kamu harapkan? Tulis di sini, tim kami akan membacanya.</p>
+
+          <form id="saranForm" class="saran-form" novalidate>
+            <div class="f-row">
+              <label for="sNama">Nama <span class="opt">(opsional)</span></label>
+              <input id="sNama" name="nama" type="text" maxlength="60" autocomplete="name" placeholder="Nama kamu">
+            </div>
+            <div class="f-row">
+              <label for="sEmail">Email <span class="opt">(opsional, kalau ingin dibalas)</span></label>
+              <input id="sEmail" name="email" type="email" maxlength="100" autocomplete="email" placeholder="nama@contoh.com">
+              <small class="f-err" id="sEmailErr" hidden></small>
+            </div>
+            <div class="f-row">
+              <label for="sPesan">Saran atau masukan</label>
+              <textarea id="sPesan" name="pesan" rows="4" maxlength="1000" placeholder="Tulis saranmu di sini" required></textarea>
+              <small class="f-err" id="sPesanErr" hidden></small>
+            </div>
+            <!-- Kolom jebakan untuk bot; manusia tidak melihatnya -->
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn-primary" type="submit" id="sKirim">Kirim saran</button>
+            <p class="f-status" id="sStatus" role="status" aria-live="polite" hidden></p>
+          </form>
+        </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UNDUH ============ -->
+  <div class="dl" id="unduh" style="padding-top:5.5rem">
+    <div class="wrap">
+      <div class="dl-card">
+        <div style="position:relative;z-index:1">
+          <h2>Mulai pantau tanaman cabaimu hari ini</h2>
+          <p>Unduh FertiFlow, hubungkan perangkat, dan buat jadwal penyiraman pertamamu dalam beberapa menit.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-light js-store" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4l3.3 3.3V4a1 1 0 0 1 1-1ZM5 19h14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2Z"/></svg>
+              Unduh Aplikasi
+            </a>
+          </div>
+        </div>
+        <div class="qr-box"><div class="qr"><img src="../img/qr-unduh.png" alt="Kode QR untuk mengunduh aplikasi FertiFlow" width="132" height="132"></div><small>Pindai dengan kamera ponsel</small></div>
+      </div>
+    </div>
+  </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:grid;gap:.5rem;max-width:36ch">
+        <a class="logo" href="#top"><img class="logo-mark" src="../img/logo-fertiflow.png" alt="" width="40" height="40"><span class="logo-text"><span>Ferti</span><span>Flow</span></span></a>
+        <span>Fertigasi cerdas dengan diagnosis hama berbasis YOLOv8. Dikembangkan oleh Tim Keluarga Cemara, Politeknik Negeri Lampung.</span>
+        <span class="foot-ver">FertiFlow v2.4.0</span>
+      </div>
+      <nav aria-label="Tautan footer">
+        <a href="#fitur">Fitur</a><a href="#tampilan">Tampilan</a><a href="#demo">Diagnosis AI</a><a href="#faq">FAQ</a><a href="#tentang">Tentang</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL FITUR ============ -->
+  <dialog id="featModal" aria-labelledby="mTitle">
+    <div class="m-grid">
+      <div class="m-shot"><div class="phone small"><img id="mImg" src="../img/app-beranda.jpg" alt="" width="576" height="1216"></div></div>
+      <div class="m-main">
+        <div class="m-head">
+          <button class="m-close" type="button" id="mClose" aria-label="Tutup">✕</button>
+          <span class="eyebrow" id="mEyebrow">Fitur aplikasi</span>
+          <h3 id="mTitle">Judul</h3>
+        </div>
+        <div class="m-body">
+          <p id="mDesc"></p>
+          <ol class="m-steps" id="mSteps"></ol>
+          <div class="m-qr"><div class="qr"><img src="../img/qr-unduh.png" alt="Kode QR untuk mengunduh aplikasi FertiFlow" width="84" height="84" loading="lazy"></div><small>Belum punya aplikasinya? Pindai kode ini atau tekan tombol unduh.</small></div>
+          <div class="m-actions">
+            <a class="btn btn-primary" id="mOpen" href="#">Buka di Aplikasi</a>
+            <a class="btn btn-ghost js-store" id="mStore" href="#" target="_blank" rel="noopener">Unduh Aplikasi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Script utama -->
+    <!-- ============ DAFTAR AKUN (tampilan saja; database akun menyusul) ============ -->
+  <dialog id="authModal" class="auth-modal" aria-labelledby="authTitle">
+    <button class="m-close" type="button" id="authClose" aria-label="Tutup">✕</button>
+    <div class="auth-head" id="authHead">
+      <img src="../img/logo-fertiflow.png" alt="" width="44" height="44">
+      <h3 id="authTitle">Daftar akun FertiFlow</h3>
+      <p>Satu akun untuk memantau lahan dari aplikasi.</p>
+    </div>
+    <form id="formDaftar" class="saran-form auth-form" novalidate>
+      <div class="f-row">
+        <label for="upNama">Nama lengkap</label>
+        <input id="upNama" name="nama" type="text" maxlength="60" autocomplete="name" placeholder="Nama kamu" required>
+        <small class="f-err" hidden></small>
+      </div>
+      <div class="f-row">
+        <label for="upId">Email atau nomor HP</label>
+        <input id="upId" name="akun" type="text" maxlength="100" autocomplete="username" placeholder="nama@contoh.com / 08xxxxxxxxxx" required>
+        <small class="f-err" hidden></small>
+      </div>
+      <div class="f-row">
+        <label for="upPass">Kata sandi <span class="opt">(minimal 8 karakter)</span></label>
+        <div class="pw"><input id="upPass" name="password" type="password" autocomplete="new-password" placeholder="Buat kata sandi" required><button type="button" class="pw-eye" aria-label="Tampilkan kata sandi">Lihat</button></div>
+        <small class="f-err" hidden></small>
+      </div>
+      <div class="f-row">
+        <label for="upPass2">Ulangi kata sandi</label>
+        <input id="upPass2" name="password2" type="password" autocomplete="new-password" placeholder="Ketik ulang kata sandi" required>
+        <small class="f-err" hidden></small>
+      </div>
+      <button class="btn btn-primary" type="submit">Buat akun</button>
+      <p class="f-status" role="status" aria-live="polite" hidden></p>
+    </form>
+    <div id="daftarSukses" class="auth-done" role="status" aria-live="polite" hidden>
+      <div class="done-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h3>Akun berhasil dibuat</h3>
+      <p>Halo, <b id="doneNama"></b>! Langkah berikutnya: unduh aplikasi FertiFlow, lalu masuk dengan akun ini.</p>
+      <div class="done-qr"><img src="../img/qr-unduh.png" alt="Kode QR untuk mengunduh aplikasi FertiFlow" width="168" height="168"></div>
+      <small>Pindai dengan kamera ponsel, atau ketuk tombol di bawah kalau kamu membuka halaman ini dari ponsel.</small>
+      <a class="btn btn-primary js-store" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4l3.3 3.3V4a1 1 0 0 1 1-1ZM5 19h14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2Z"/></svg><span>Unduh Aplikasi</span></a>
+      <p class="done-note" id="doneNote" hidden>Mode uji: data belum disimpan karena database akun masih disiapkan.</p>
+    </div>
+  </dialog>
+  <script src="../js/script.js"></script>
+</body>
+</html>
